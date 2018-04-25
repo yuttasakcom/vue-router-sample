@@ -16,9 +16,8 @@ const config = {
     extensions: [".js", ".vue"]
   },
   devServer: {
-    historyApiFallback: {
-      disableDotRule: true
-    }
+    contentBase: resolve("dist"),
+    historyApiFallback: true
   },
   module: {
     rules: [
@@ -35,7 +34,8 @@ const config = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: resolve("src/public/index.html")
+      template: resolve("src/public/index.html"),
+      inject: true
     })
   ]
 };

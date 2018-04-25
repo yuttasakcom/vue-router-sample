@@ -4,6 +4,8 @@ import VueRouter from "vue-router";
 import store from "../stores";
 
 import Home from "@/pages/Home";
+import UserChild from "@/pages/UserChild";
+
 import User from "@/pages/User";
 import Post from "@/pages/Post";
 import Login from "@/pages/Login";
@@ -14,7 +16,7 @@ let router = new VueRouter({
   mode: "history",
   routes: [
     {
-      path: "/",
+      path: "",
       component: Home
     },
     {
@@ -22,7 +24,13 @@ let router = new VueRouter({
       component: User,
       meta: {
         requireAuth: true
-      }
+      },
+      children: [
+        {
+          path: ":id",
+          component: UserChild
+        }
+      ]
     },
     {
       path: "/post",
