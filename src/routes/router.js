@@ -5,6 +5,7 @@ import store from "../stores";
 
 import Home from "@/pages/Home";
 import User from "@/pages/User";
+import Post from "@/pages/Post";
 import Login from "@/pages/Login";
 
 Vue.use(VueRouter);
@@ -24,6 +25,13 @@ let router = new VueRouter({
       }
     },
     {
+      path: "/post",
+      component: Post,
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
       path: "/login",
       component: Login
     }
@@ -31,7 +39,7 @@ let router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if (to.matched.some(field => field.meta.requireAuth)) {
+  if (to.matched.some(record => record.meta.requireAuth)) {
     if (!store.getters.isAuth) {
       next("/login");
     } else {

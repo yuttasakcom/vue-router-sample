@@ -5,6 +5,7 @@
       <ul class="navbar-nav mr-auto">
         <router-link to="/" tag="li" class="nav-item" active-class="active" exact><a class="nav-link">Home</a></router-link>
         <router-link to="/user" tag="li" class="nav-item" active-class="active" exact><a class="nav-link">User</a></router-link>
+        <router-link to="/post" tag="li" class="nav-item" active-class="active" exact><a class="nav-link">Post</a></router-link>
         <router-link to="/login" tag="li" class="nav-item" active-class="active" exact><a class="nav-link">Login</a></router-link>
       </ul>
     </nav>
